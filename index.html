@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#173c2c">
+  <meta name="description" content="MittiMahal — handmade mitti ke bartan, kulhad, matke, diyas aur home decor.">
+  <title>MittiMahal | Mitti se bana, dil se apna</title>
+  <style>
+    :root{--green:#173c2c;--green2:#24583e;--cream:#fff8ec;--sand:#f1dfc4;--orange:#d97736;--ink:#20251f;--muted:#697168;--line:#e9e2d8;--white:#fff;--shadow:0 12px 35px #2a251810}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:#fff}
+    a{color:inherit;text-decoration:none}button,input,select{font:inherit}button{cursor:pointer}
+    .topnote{background:var(--green);color:#fff;text-align:center;padding:8px 12px;font-size:12px;letter-spacing:.2px}
+    header{position:sticky;top:0;z-index:20;background:#fff;box-shadow:0 2px 12px #0000000b}
+    .head{max-width:1320px;margin:auto;padding:14px 22px;display:flex;align-items:center;gap:22px}
+    .logo{font-size:27px;font-weight:900;color:var(--green);letter-spacing:-1px;white-space:nowrap}.logo span{color:var(--orange)}
+    .search{display:flex;flex:1;max-width:680px;border:1px solid #d9d9d9;border-radius:9px;overflow:hidden;background:#fff}
+    .search input{border:0;outline:0;padding:12px 14px;width:100%;min-width:0}.search button{border:0;background:var(--sand);padding:0 17px;color:var(--green);font-size:19px}
+    .head-actions{display:flex;gap:10px;align-items:center;margin-left:auto}.action{border:1px solid var(--line);background:white;border-radius:9px;padding:10px 12px;color:var(--green);font-weight:700}.action:hover{background:var(--cream)}
+    nav{border-top:1px solid #f0eee8}.navinner{max-width:1320px;margin:auto;display:flex;gap:25px;padding:12px 22px;overflow-x:auto;white-space:nowrap;font-size:13px;font-weight:700}.navinner a:hover{color:var(--orange)}
+    .wrap{max-width:1320px;margin:auto;padding:0 22px}
+    .hero{margin:22px 0 28px;min-height:330px;border-radius:18px;overflow:hidden;display:grid;grid-template-columns:1.04fr .96fr;background:var(--cream);box-shadow:var(--shadow)}
+    .hero-copy{padding:clamp(28px,5vw,64px);display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
+    .eyebrow{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--orange);font-weight:800}
+    h1{font-size:clamp(34px,4.5vw,58px);line-height:1.05;letter-spacing:-1.8px;margin:14px 0;color:var(--green)}
+    .hero-copy p{color:#5c6259;line-height:1.7;max-width:490px;margin:0 0 23px}
+    .btn{border:0;background:var(--green);color:#fff;padding:13px 19px;border-radius:8px;font-weight:800;display:inline-flex;align-items:center;justify-content:center;gap:8px}.btn:hover{background:var(--green2)}.btn.secondary{background:#fff;color:var(--green);border:1px solid var(--green)}.btn.orange{background:var(--orange)}
+    .hero-art{min-height:300px;position:relative;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#e7cda9,#f8ead7)}
+    .hero-art img{width:100%;height:100%;position:absolute;inset:0;object-fit:cover}
+    .hero-label{position:absolute;bottom:20px;left:20px;background:#fffdf5eF;border-radius:12px;padding:13px 17px;box-shadow:var(--shadow);font-size:13px;color:var(--green);font-weight:800}
+    .trust{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:0 0 36px}.trust-item{padding:16px;border:1px solid var(--line);border-radius:12px;display:flex;gap:11px;align-items:center}.trust-icon{font-size:24px}.trust-item b{display:block;font-size:13px}.trust-item small{color:var(--muted);font-size:11px}
+    .section{margin:34px 0 42px}.section-head{display:flex;justify-content:space-between;gap:16px;align-items:end;margin-bottom:18px}.section-head h2{margin:0;color:var(--green);font-size:clamp(23px,3vw,32px)}.section-head p{margin:7px 0 0;color:var(--muted);font-size:14px}
+    .categories{display:grid;grid-template-columns:repeat(5,1fr);gap:15px}.category{border-radius:14px;overflow:hidden;background:var(--cream);border:1px solid var(--line);text-align:center;transition:.2s}.category:hover{transform:translateY(-3px);box-shadow:var(--shadow)}.category img{width:100%;height:145px;object-fit:cover;display:block}.category b{display:block;padding:13px 7px;font-size:14px}
+    .toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.toolbar input,.toolbar select{border:1px solid var(--line);padding:11px 12px;border-radius:8px;background:#fff;outline-color:var(--green)}.toolbar input{min-width:220px}
+    .products{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:17px}.product{border:1px solid var(--line);border-radius:13px;overflow:hidden;background:#fff;position:relative;transition:.2s}.product:hover{box-shadow:var(--shadow);transform:translateY(-2px)}.product-img{height:220px;background:#f7f3ed;position:relative;overflow:hidden}.product-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s}.product:hover .product-img img{transform:scale(1.04)}.tag{position:absolute;left:10px;top:10px;background:var(--green);color:white;padding:5px 8px;border-radius:5px;font-size:10px;font-weight:800}.heart{position:absolute;right:10px;top:10px;border:0;background:#ffffffdf;width:34px;height:34px;border-radius:50%;font-size:18px}.product-info{padding:14px}.product-info h3{font-size:15px;margin:0 0 7px;line-height:1.35}.product-info p{font-size:12px;color:var(--muted);margin:0 0 12px;min-height:30px;line-height:1.45}.rating{color:#c2782c;font-size:12px;margin-bottom:8px}.price-row{display:flex;gap:8px;align-items:center;margin-bottom:12px}.price{font-size:20px;font-weight:900;color:var(--green)}.old{font-size:12px;color:#8a8a8a;text-decoration:line-through}.off{font-size:11px;color:#b34e2d;font-weight:800}.product-actions{display:flex;gap:8px}.product-actions .btn{flex:1;padding:10px 7px;font-size:12px}.product-actions .btn.secondary{flex:0 0 auto}
+    .promo{border-radius:16px;background:var(--green);color:#fff;padding:28px 30px;display:flex;justify-content:space-between;gap:20px;align-items:center}.promo h2{margin:0 0 8px;font-size:27px}.promo p{margin:0;color:#e3eee4;font-size:14px;line-height:1.5}
+    .story{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center}.story img{width:100%;height:290px;object-fit:cover;border-radius:15px}.story h2{font-size:30px;color:var(--green);margin:0 0 12px}.story p{line-height:1.75;color:var(--muted)}
+    footer{background:#102d21;color:#fff;margin-top:55px;padding:38px 0 18px}.footergrid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:25px}.footergrid h3,.footergrid h4{margin-top:0}.footergrid p,.footergrid a{color:#d3ded5;font-size:13px;line-height:1.9;display:block}.copyright{border-top:1px solid #ffffff25;margin-top:25px;padding-top:17px;color:#c4d0c6;font-size:12px}
+    .overlay{display:none;position:fixed;inset:0;background:#0008;z-index:50}.overlay.show{display:block}.drawer{position:absolute;right:0;top:0;height:100%;width:min(440px,100%);background:#fff;padding:22px;overflow:auto;box-shadow:-10px 0 40px #0002}.drawer-head{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:14px}.close{border:0;background:#f4f0e9;border-radius:50%;width:36px;height:36px;font-size:20px}.cart-row{display:grid;grid-template-columns:76px 1fr auto;gap:12px;padding:16px 0;border-bottom:1px solid var(--line)}.cart-row img{width:76px;height:76px;object-fit:cover;border-radius:8px;background:var(--cream)}.cart-row h4{margin:2px 0 6px;font-size:13px}.cart-row small{color:var(--muted)}.qty{display:flex;gap:8px;align-items:center;margin-top:8px}.qty button{width:25px;height:25px;border:1px solid var(--line);background:#fff;border-radius:5px}.cart-bottom{position:sticky;bottom:-22px;background:#fff;padding:18px 0 5px;border-top:1px solid var(--line);margin-top:20px}.total{display:flex;justify-content:space-between;font-size:18px;font-weight:900;margin-bottom:14px}.cart-bottom .btn{width:100%}
+    .modalwrap{display:none;position:fixed;inset:0;background:#0008;z-index:60;align-items:center;justify-content:center;padding:18px}.modalwrap.show{display:flex}.modal{width:min(430px,100%);background:#fff;border-radius:16px;padding:25px;box-shadow:var(--shadow)}.modal h2{color:var(--green);margin:0 0 7px}.modal p{font-size:13px;color:var(--muted);line-height:1.5}.modal label{display:block;font-size:12px;font-weight:800;margin:13px 0 6px}.modal input,.modal textarea{width:100%;padding:12px;border:1px solid var(--line);border-radius:8px;outline-color:var(--green)}.modal .btn{width:100%;margin-top:16px}.notice{display:none;padding:11px;border-radius:8px;background:#e9f5eb;color:#215633;font-size:13px;margin-top:12px}.notice.show{display:block}
+    .empty{text-align:center;padding:40px 10px;color:var(--muted)}.mobilemenu{display:none}
+    @media(max-width:900px){.head{gap:12px;flex-wrap:wrap}.search{order:3;max-width:none;flex-basis:100%}.hero{grid-template-columns:1fr}.hero-art{min-height:250px}.trust{grid-template-columns:repeat(2,1fr)}.categories{grid-template-columns:repeat(3,1fr)}.products{grid-template-columns:repeat(3,minmax(0,1fr))}.product-img{height:190px}}
+    @media(max-width:600px){.wrap{padding:0 13px}.head{padding:12px 13px}.logo{font-size:23px}.head-actions{gap:6px}.action{padding:9px;font-size:12px}.navinner{padding:11px 13px;gap:18px}.hero{margin-top:13px}.hero-copy{padding:27px 22px}.hero-art{min-height:215px}.trust{gap:8px}.trust-item{padding:11px}.trust-item small{font-size:10px}.categories{grid-template-columns:repeat(2,1fr);gap:10px}.category img{height:125px}.products{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.product-img{height:155px}.product-info{padding:10px}.product-info h3{font-size:13px}.product-info p{font-size:11px;min-height:44px}.price{font-size:17px}.product-actions{flex-direction:column}.product-actions .btn.secondary{width:100%}.section-head{align-items:flex-start;flex-direction:column}.toolbar{width:100%}.toolbar input{min-width:0;flex:1;width:100%}.promo{padding:22px;align-items:flex-start;flex-direction:column}.story{grid-template-columns:1fr}.story img{height:220px}.footergrid{grid-template-columns:1fr 1fr}.footergrid>div:first-child{grid-column:1/-1}}
+  </style>
+</head>
+<body>
+  <div class="topnote">🌿 Mitti se bana, dil se apna · Handmade pottery · Har order mein desi khushboo</div>
+  <header>
+    <div class="head">
+      <a class="logo" href="#" aria-label="MittiMahal home">Mitti<span>Mahal</span> 🏺</a>
+      <form class="search" id="searchForm"><input id="searchInput" type="search" placeholder="Kulhad, matka, diya aur bhi bahut kuch search karein..." aria-label="Search products"><button aria-label="Search">⌕</button></form>
+      <div class="head-actions">
+        <button class="action" id="accountBtn">👤 <span id="accountText">Login</span></button>
+        <button class="action" id="cartBtn">🛒 Cart (<span id="cartCount">0</span>)</button>
+      </div>
+    </div>
+    <nav><div class="navinner">
+      <a href="#home">Home</a><a href="#categories">Categories</a><a href="#products">All Products</a><a href="#story">Hamari Kahani</a><a href="#contact">Contact</a><a href="#products" data-filter="Kulhad">Kulhad</a><a href="#products" data-filter="Matka">Matka & Surahi</a><a href="#products" data-filter="Diya">Diya</a>
+    </div></nav>
+  </header>
+
+  <main class="wrap">
+    <section class="hero" id="home">
+      <div class="hero-copy">
+        <div class="eyebrow">✨ Mitti ki asli khushboo</div>
+        <h1>Apne ghar laayein<br>mitti ka sukoon.</h1>
+        <p>Handmade kulhad, matke, surahi, diyas aur home decor — parampara ka pyaar, aapke ghar tak.</p>
+        <a class="btn" href="#products">Shop Collection <span>→</span></a>
+      </div>
+      <div class="hero-art">
+        <img src="https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?auto=format&fit=crop&w=1100&q=85" alt="Handmade pottery collection" onerror="this.style.display='none'">
+        <div class="hero-label">🏺 Handmade with care · Made in India</div>
+      </div>
+    </section>
+
+    <section class="trust" aria-label="Store benefits">
+      <div class="trust-item"><span class="trust-icon">👐</span><div><b>Handmade Craft</b><small>Har piece mein kala</small></div></div>
+      <div class="trust-item"><span class="trust-icon">🌱</span><div><b>Natural Mitti</b><small>Earthy & timeless</small></div></div>
+      <div class="trust-item"><span class="trust-icon">📦</span><div><b>Careful Packing</b><small>Safe packing ka vaada</small></div></div>
+      <div class="trust-item"><span class="trust-icon">🇮🇳</span><div><b>Indian Artisans</b><small>Local kala ko support</small></div></div>
+    </section>
+
+    <section class="section" id="categories">
+      <div class="section-head"><div><h2>Shop by Category</h2><p>Apni pasand ki mitti ki cheez chunein</p></div></div>
+      <div class="categories">
+        <a class="category" href="#products" data-filter="Kulhad"><img src="https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?auto=format&fit=crop&w=500&q=80" alt="Kulhad"><b>☕ Kulhad & Cups</b></a>
+        <a class="category" href="#products" data-filter="Matka"><img src="https://images.unsplash.com/photo-1578500494198-246f612d3b3d?auto=format&fit=crop&w=500&q=80" alt="Matka"><b>💧 Matka & Surahi</b></a>
+        <a class="category" href="#products" data-filter="Diya"><img src="https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=500&q=80" alt="Diya"><b>🪔 Diya & Pooja</b></a>
+        <a class="category" href="#products" data-filter="Planter"><img src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=500&q=80" alt="Planter"><b>🪴 Planters</b></a>
+        <a class="category" href="#products" data-filter="Decor"><img src="https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?auto=format&fit=crop&w=500&q=80" alt="Home decor"><b>🏺 Home Decor</b></a>
+      </div>
+    </section>
+
+    <section class="section" id="products">
+      <div class="section-head"><div><h2>Hamare Popular Products</h2><p>Handpicked mitti ke bartan, aapke ghar aur tohfe ke liye.</p></div>
+        <div class="toolbar"><input id="productSearch" type="search" placeholder="Product search..."><select id="categoryFilter" aria-label="Filter category"><option value="All">All categories</option><option>Kulhad</option><option>Matka</option><option>Diya</option><option>Planter</option><option>Decor</option><option>Kitchen</option></select><select id="sortFilter" aria-label="Sort products"><option value="featured">Featured</option><option value="low">Price: low to high</option><option value="high">Price: high to low</option></select></div>
+      </div>
+      <div class="products" id="productGrid"></div>
+    </section>
+
+    <section class="section promo">
+      <div><h2>🌾 Mitti ka pyaar, seedha aapke ghar</h2><p>Ghar ke liye, pooja ke liye ya kisi apne ko gift dene ke liye — apni pasand chunein.</p></div>
+      <a class="btn orange" href="#products">Explore Products →</a>
+    </section>
+
+    <section class="section story" id="story">
+      <img src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?auto=format&fit=crop&w=1000&q=85" alt="Potter making handmade pottery" loading="lazy">
+      <div><div class="eyebrow">Hamari kahani</div><h2>Parampara jo har ghar tak pahunche.</h2><p>MittiMahal ek demo storefront hai jo mitti ke bartan aur handmade pottery ko sundar, aasaan online shopping experience ke saath dikhata hai. Hamara maqsad local artisans ki kala ko celebrate karna aur traditional products ko naye gharon tak pahunchana hai.</p><a class="btn secondary" href="#contact">Humse baat karein</a></div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="section-head"><div><h2>Contact & Order Help</h2><p>Product ya order ke baare mein sawal hai? Message bhejein.</p></div></div>
+      <div class="promo" style="background:#f7efe2;color:var(--green)">
+        <div><h2>Apni pasand ka bartan dhoondh rahe hain?</h2><p>Cart mein products add karein, phir WhatsApp par order enquiry bhej sakte hain.</p></div>
+        <button class="btn" id="whatsappBtn">WhatsApp Order Enquiry ↗</button>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="wrap">
+    <div class="footergrid">
+      <div><a class="logo" href="#" style="color:#fff">Mitti<span>Mahal</span> 🏺</a><p>Mitti ke bartan, handmade pottery aur desi home decor. Aapka apna demo online store.</p></div>
+      <div><h4>Quick Links</h4><a href="#products">All Products</a><a href="#categories">Categories</a><a href="#story">Our Story</a></div>
+      <div><h4>Customer Care</h4><a href="#contact">Contact Us</a><a href="#contact">Shipping & Returns</a><a href="#contact">Order Help</a></div>
+    </div>
+    <div class="copyright">© <span id="year"></span> MittiMahal. Demo store — prices, stock aur order fulfilment ko launch se pehle verify karein.</div>
+  </div></footer>
+
+  <div class="overlay" id="cartOverlay" role="dialog" aria-modal="true" aria-label="Shopping cart">
+    <div class="drawer">
+      <div class="drawer-head"><h2 style="margin:0;color:var(--green)">Aapka Cart 🛒</h2><button class="close" id="closeCart" aria-label="Close">×</button></div>
+      <div id="cartItems"></div>
+      <div class="cart-bottom"><div class="total"><span>Total</span><span id="cartTotal">₹0</span></div><button class="btn" id="checkoutBtn">Order Enquiry on WhatsApp</button><p style="font-size:11px;color:var(--muted);line-height:1.5">Demo checkout: payment collect nahi hota. WhatsApp order bhejne se pehle apna number code mein set karein.</p></div>
+    </div>
+  </div>
+
+  <div class="modalwrap" id="loginModal">
+    <div class="modal">
+      <div style="display:flex;justify-content:space-between;align-items:center"><h2>Welcome to MittiMahal</h2><button class="close" id="closeLogin">×</button></div>
+      <p>Demo account sign-in. Is single-file version mein login browser ke andar demo ke roop mein save hota hai, secure online account nahi.</p>
+      <form id="loginForm"><label for="customerName">Aapka naam</label><input id="customerName" required maxlength="60" placeholder="Naam likhein"><label for="customerEmail">Email</label><input id="customerEmail" type="email" required placeholder="you@example.com"><button class="btn" type="submit">Continue</button></form>
+      <div class="notice" id="loginNotice"></div>
+    </div>
+  </div>
+
+  <div class="modalwrap" id="productModal">
+    <div class="modal">
+      <div style="display:flex;justify-content:space-between;align-items:center"><h2 id="detailTitle">Product Details</h2><button class="close" id="closeProduct">×</button></div>
+      <div id="productDetails"></div>
+    </div>
+  </div>
+
+  <script>
+    // Products are demo examples. Update prices, images, stock and descriptions before publishing.
+    const products = [
+      {id:1,name:"Handmade Kulhad Set (6 pcs)",category:"Kulhad",price:299,old:399,rating:"4.8",tag:"Bestseller",desc:"Chai aur lassi ke liye traditional unglazed clay cups.",img:"https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?auto=format&fit=crop&w=700&q=85"},
+      {id:2,name:"Traditional Mitti Matka",category:"Matka",price:499,old:649,rating:"4.7",tag:"Natural",desc:"Roz ke istemal ke liye classic mitti ka matka.",img:"https://images.unsplash.com/photo-1578500494198-246f612d3b3d?auto=format&fit=crop&w=700&q=85"},
+      {id:3,name:"Decorative Terracotta Diya Set",category:"Diya",price:149,old:199,rating:"4.9",tag:"Festive Pick",desc:"Pooja aur tyohar ke liye mitti ke diye ka set.",img:"https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=700&q=85"},
+      {id:4,name:"Mitti Water Surahi",category:"Matka",price:349,old:449,rating:"4.6",tag:"Traditional",desc:"Thande paani ke liye paramparik surahi style.",img:"https://images.unsplash.com/photo-1578500494198-246f612d3b3d?auto=format&fit=crop&w=700&q=85"},
+      {id:5,name:"Terracotta Plant Pot",category:"Planter",price:199,old:249,rating:"4.7",tag:"Eco Style",desc:"Indoor plants aur balcony garden ke liye earthy planter.",img:"https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=700&q=85"},
+      {id:6,name:"Handcrafted Clay Vase",category:"Decor",price:399,old:549,rating:"4.5",tag:"Handcrafted",desc:"Living room, shelf ya table ke liye rustic decor.",img:"https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?auto=format&fit=crop&w=700&q=85"},
+      {id:7,name:"Clay Curd Pot (Dahi Handi)",category:"Kitchen",price:179,old:229,rating:"4.6",tag:"Kitchen Pick",desc:"Dahi set karne aur kitchen serving ke liye clay pot.",img:"https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?auto=format&fit=crop&w=700&q=85"},
+      {id:8,name:"Mini Terracotta Showpiece Set",category:"Decor",price:249,old:329,rating:"4.8",tag:"Gift Idea",desc:"Gifting aur home styling ke liye decorative pottery.",img:"https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?auto=format&fit=crop&w=700&q=85"},
+      {id:9,name:"Mitti Handi for Cooking",category:"Kitchen",price:299,old:399,rating:"4.7",tag:"Kitchen Favourite",desc:"Dum-style cooking aur traditional serving ke liye mitti ki handi.",img:"https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?auto=format&fit=crop&w=700&q=85"},
+      {id:10,name:"Long Neck Terracotta Surahi",category:"Matka",price:429,old:549,rating:"4.8",tag:"Traditional Pick",desc:"Ghar ke liye classic long-neck surahi design.",img:"https://images.unsplash.com/photo-1578500494198-246f612d3b3d?auto=format&fit=crop&w=700&q=85"},
+      {id:11,name:"Rustic Clay Tea Cups (4 pcs)",category:"Kulhad",price:229,old:299,rating:"4.6",tag:"Chai Time",desc:"Ghar par chai serve karne ke liye mitti ke cup ka set.",img:"https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?auto=format&fit=crop&w=700&q=85"},
+      {id:12,name:"Decorative Terracotta Bowl",category:"Decor",price:189,old:249,rating:"4.5",tag:"New Arrival",desc:"Table decor, dry flowers ya small accessories rakhne ke liye bowl.",img:"https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?auto=format&fit=crop&w=700&q=85"},
+      {id:13,name:"Hanging Clay Planter",category:"Planter",price:279,old:349,rating:"4.7",tag:"Garden Pick",desc:"Balcony aur window ke liye earthy terracotta planter.",img:"https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=700&q=85"},
+      {id:14,name:"Festival Diya Gift Pack (12 pcs)",category:"Diya",price:199,old:279,rating:"4.9",tag:"Festival Special",desc:"Diwali, pooja aur ghar ki sajawat ke liye 12 mitti ke diye.",img:"https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=700&q=85"},
+      {id:15,name:"Traditional Clay Pickle Jar",category:"Kitchen",price:249,old:329,rating:"4.6",tag:"Classic Kitchen",desc:"Achar aur dry kitchen items store karne ke liye traditional jar.",img:"https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?auto=format&fit=crop&w=700&q=85"},
+      {id:16,name:"Terracotta Flower Vase",category:"Decor",price:449,old:599,rating:"4.8",tag:"Handmade Look",desc:"Fresh ya artificial flowers ke liye rustic mitti ka vase.",img:"https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?auto=format&fit=crop&w=700&q=85"}
+    ];
+    const $ = id => document.getElementById(id);
+    let cart = JSON.parse(localStorage.getItem("mittimahal_cart") || "[]");
+    let user = JSON.parse(localStorage.getItem("mittimahal_demo_user") || "null");
+    let pendingOrder = false;
+    let activeCategory = "All";
+    const money = n => "₹" + Number(n).toLocaleString("en-IN");
+    const safe = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+    function saveCart(){localStorage.setItem("mittimahal_cart",JSON.stringify(cart));renderCartCount();}
+    function renderProducts(){
+      const query=($("productSearch").value || $("searchInput").value).trim().toLowerCase();
+      const category=$("categoryFilter").value==="All"?activeCategory:$("categoryFilter").value;
+      let list=products.filter(p=>(category==="All"||p.category===category)&&(`${p.name} ${p.category} ${p.desc}`).toLowerCase().includes(query));
+      if($("sortFilter").value==="low")list.sort((a,b)=>a.price-b.price);
+      if($("sortFilter").value==="high")list.sort((a,b)=>b.price-a.price);
+      $("productGrid").innerHTML=list.length?list.map(p=>`<article class="product">
+        <div class="product-img"><img src="${p.img}" alt="${safe(p.name)}" loading="lazy" onerror="this.src='https://placehold.co/600x500/f1dfc4/173c2c?text=MittiMahal'"><span class="tag">${safe(p.tag)}</span><button class="heart" aria-label="View ${safe(p.name)}" onclick="showProduct(${p.id})">♡</button></div>
+        <div class="product-info"><div class="rating">★ ${p.rating} <span style="color:#7b8178">· Handmade collection</span></div><h3>${safe(p.name)}</h3><p>${safe(p.desc)}</p><div class="price-row"><span class="price">${money(p.price)}</span><span class="old">${money(p.old)}</span><span class="off">${Math.round((1-p.price/p.old)*100)}% off</span></div><div class="product-actions"><button class="btn" onclick="addToCart(${p.id})">Add to Cart</button><button class="btn secondary" onclick="showProduct(${p.id})">Details</button></div></div>
+      </article>`).join(""):'<div class="empty" style="grid-column:1/-1">Koi product nahi mila. Search badal kar dekhein.</div>';
+    }
+    function addToCart(id){const found=cart.find(i=>i.id===id);if(found)found.qty++;else cart.push({id,qty:1});saveCart();renderCart();$("cartOverlay").classList.add("show");}
+    function changeQty(id,delta){const item=cart.find(i=>i.id===id);if(!item)return;item.qty+=delta;if(item.qty<=0)cart=cart.filter(i=>i.id!==id);saveCart();renderCart();}
+    function renderCartCount(){$("cartCount").textContent=cart.reduce((sum,i)=>sum+i.qty,0);}
+    function renderCart(){
+      const items=cart.map(i=>({...i,product:products.find(p=>p.id===i.id)})).filter(i=>i.product);
+      $("cartItems").innerHTML=items.length?items.map(i=>`<div class="cart-row"><img src="${i.product.img}" alt="${safe(i.product.name)}"><div><h4>${safe(i.product.name)}</h4><b>${money(i.product.price)}</b><div class="qty"><button onclick="changeQty(${i.id},-1)">−</button><span>${i.qty}</span><button onclick="changeQty(${i.id},1)">+</button></div></div><button class="close" style="width:28px;height:28px" onclick="changeQty(${i.id},-${i.qty})" aria-label="Remove">×</button></div>`).join(""):'<div class="empty"><div style="font-size:40px">🛒</div><h3>Cart abhi khaali hai</h3><p>Apne pasand ke mitti ke bartan add karein.</p></div>';
+      $("cartTotal").textContent=money(items.reduce((sum,i)=>sum+i.product.price*i.qty,0));
+    }
+    function showProduct(id){
+      const p=products.find(x=>x.id===id);if(!p)return;
+      $("detailTitle").textContent=p.name;
+      $("productDetails").innerHTML=`<img src="${p.img}" alt="${safe(p.name)}" style="width:100%;height:220px;object-fit:cover;border-radius:10px;background:var(--cream)" onerror="this.src='https://placehold.co/600x500/f1dfc4/173c2c?text=MittiMahal'"><p style="line-height:1.6">${safe(p.desc)}</p><p><b style="font-size:24px;color:var(--green)">${money(p.price)}</b> <span style="text-decoration:line-through;color:#888">${money(p.old)}</span></p><p>Category: ${safe(p.category)} · Demo listing</p><button class="btn" style="width:100%" onclick="addToCart(${p.id});$('productModal').classList.remove('show')">Add to Cart</button>`;
+      $("productModal").classList.add("show");
+    }
+    function openWhatsApp(){
+      if(!cart.length){alert("Pehle products ko cart mein add karein.");return;}
+
+      // IMPORTANT: Replace 91XXXXXXXXXX with your WhatsApp number.
+      // Use country code + number only; no + sign, spaces, or dashes.
+      const whatsappNumber="91XXXXXXXXXX";
+
+      // Login is required before an order enquiry can be opened.
+      if(!user){
+        pendingOrder = true;
+        $("loginNotice").textContent="Order karne ke liye pehle login karein. Login ke baad WhatsApp order message khul jayega.";
+        $("loginNotice").classList.add("show");
+        $("loginModal").classList.add("show");
+        return;
+      }
+
+      if(!/^\\d{10,15}$/.test(whatsappNumber) || whatsappNumber.includes("X")){
+        alert("Pehle code mein 91XXXXXXXXXX ko apne WhatsApp Business number se replace karein. Country code ke saath number likhein, jaise 91XXXXXXXXXX.");
+        return;
+      }
+
+      const lines=cart.map(i=>{
+        const p=products.find(x=>x.id===i.id);
+        return p?`• ${p.name} x ${i.qty} = ${money(p.price*i.qty)}`:"";
+      }).filter(Boolean);
+      const total=cart.reduce((sum,i)=>{
+        const p=products.find(x=>x.id===i.id);
+        return sum+(p?p.price*i.qty:0);
+      },0);
+      const msg=`Namaste MittiMahal! Mujhe order place karna hai.\nCustomer name: ${user.name}\nCustomer email: ${user.email}\n\nProducts:\n${lines.join("\n")}\n\nTotal (shipping extra, if applicable): ${money(total)}\nDelivery address: \nCity/Pincode: \nPhone number: \n\nKripya order aur delivery charges confirm karein.`;
+      window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`,"_blank","noopener");
+    }
+    $("searchForm").addEventListener("submit",e=>{e.preventDefault();$("productSearch").value=$("searchInput").value;activeCategory="All";$("categoryFilter").value="All";renderProducts();$("products").scrollIntoView({behavior:"smooth"});});
+    $("productSearch").addEventListener("input",()=>{ $("searchInput").value=$("productSearch").value;renderProducts();});
+    $("categoryFilter").addEventListener("change",()=>{activeCategory="All";renderProducts();});
+    $("sortFilter").addEventListener("change",renderProducts);
+    document.querySelectorAll("[data-filter]").forEach(el=>el.addEventListener("click",()=>{activeCategory=el.dataset.filter;$("categoryFilter").value="All";$("productSearch").value="";$("searchInput").value="";renderProducts();}));
+    $("cartBtn").addEventListener("click",()=>{$("cartOverlay").classList.add("show");renderCart();});
+    $("closeCart").addEventListener("click",()=>$("cartOverlay").classList.remove("show"));
+    $("cartOverlay").addEventListener("click",e=>{if(e.target===$("cartOverlay"))$("cartOverlay").classList.remove("show");});
+    $("accountBtn").addEventListener("click",()=>{if(user){if(confirm(`Aap ${user.name} ke naam se demo login hain. Logout karein?`)){user=null;localStorage.removeItem("mittimahal_demo_user");updateAccount();}}else $("loginModal").classList.add("show");});
+    $("closeLogin").addEventListener("click",()=>$("loginModal").classList.remove("show"));
+    $("loginModal").addEventListener("click",e=>{if(e.target===$("loginModal"))$("loginModal").classList.remove("show");});
+    $("loginForm").addEventListener("submit",e=>{
+      e.preventDefault();
+      user={name:$("customerName").value.trim(),email:$("customerEmail").value.trim()};
+      localStorage.setItem("mittimahal_demo_user",JSON.stringify(user));
+      updateAccount();
+      $("loginNotice").textContent="Demo login ho gaya, "+user.name+"!";
+      $("loginNotice").classList.add("show");
+      if(pendingOrder){
+        pendingOrder=false;
+        $("loginModal").classList.remove("show");
+        openWhatsApp();
+      }else{
+        setTimeout(()=>$("loginModal").classList.remove("show"),1100);
+      }
+    });
+    function updateAccount(){$("accountText").textContent=user?user.name.split(" ")[0]:"Login";}
+    $("closeProduct").addEventListener("click",()=>$("productModal").classList.remove("show"));
+    $("productModal").addEventListener("click",e=>{if(e.target===$("productModal"))$("productModal").classList.remove("show");});
+    $("checkoutBtn").addEventListener("click",openWhatsApp);
+    $("whatsappBtn").addEventListener("click",openWhatsApp);
+    $("year").textContent=new Date().getFullYear();
+    renderProducts();renderCartCount();renderCart();updateAccount();
+  </script>
+</body>
+</html>
